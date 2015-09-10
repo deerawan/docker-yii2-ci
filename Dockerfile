@@ -21,7 +21,8 @@ ENV PATH /root/.composer/vendor/bin:$PATH
 RUN composer global require "fxp/composer-asset-plugin:1.0.3" --prefer-source --no-interaction
 
 # Install Codeception
-RUN COMPOSER_PROCESS_TIMEOUT=2000 composer global require "codeception/codeception=2.0.*" "codeception/specify=*" "codeception/verify=*" --no-interaction
+RUN COMPOSER_PROCESS_TIMEOUT=2000 composer global require \
+  "codeception/codeception=2.0.*" "codeception/specify=*" "codeception/verify=*" --no-interaction
 
 EXPOSE 80
 
