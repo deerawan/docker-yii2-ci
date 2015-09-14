@@ -8,6 +8,7 @@ Base docker image to run Yii2 in Continuous Integration environment
 - Composer
 - Git
 - Codeception
+- PhantomJS
 
 ## License
 [MIT License](http://opensource.org/licenses/MIT)
