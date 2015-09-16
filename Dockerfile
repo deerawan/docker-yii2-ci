@@ -12,7 +12,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   php5-curl \
   git \
   curl \
-  build-essential
+  build-essential \
+  wget
 
 # Install Node JS
 RUN curl -sL https://deb.nodesource.com/setup | sudo bash -
@@ -26,9 +27,18 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
   libfreetype6 \
   libfreetype6-dev \
   libfontconfig1 \
-  libfontconfig1-dev
+  libfontconfig1-dev \
+  libicu52 \
+  libjpeg8 \
+  libfontconfig \
+  libwebp5
 
-RUN npm install -g phantomjs
+RUN npm cache clean -f
+RUN npm set strict-ssl false
+#RUN npm install -g phantomjs2
+RUN wget https://github.com/Pyppe/phantomjs2.0-ubuntu14.04x64/raw/master/bin/phantomjs
+RUN chmod 755 phantomjs
+RUN mv phantomjs /usr/bin
 ENV PATH /usr/bin:$PATH
 
  # Enable apache rewrite module
